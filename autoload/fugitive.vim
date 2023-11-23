@@ -4159,11 +4159,11 @@ function! s:StatusCommand(line1, line2, range, count, bang, mods, reg, arg, args
       endfor
     endfor
     if a:count ==# 0
-      return mods . 'edit' . (a:bang ? '!' : '') . arg
+      return mods . 'vert edit' . (a:bang ? '!' : '') . arg
     elseif a:bang
-      return mods . 'pedit' . arg . '|wincmd P'
+      return mods . 'vert pedit' . arg . '|wincmd P'
     else
-      return mods . 'keepalt split' . arg
+      return mods . 'vert keepalt split' . arg
     endif
   catch /^fugitive:/
     return 'echoerr ' . string(v:exception)
